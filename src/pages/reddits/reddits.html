@@ -1,5 +1,5 @@
 <!--
-  Generated template for the Login2 page.
+  Generated template for the Reditts page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,11 +9,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login2</ion-title>
+    <ion-title>Reddit</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+ <ion-list>
+   <ion-item *ngFor="let item of items"> 
+      <h2>{{item.data.title}}</h2>
+   </ion-item>
+ </ion-list>
 </ion-content>
