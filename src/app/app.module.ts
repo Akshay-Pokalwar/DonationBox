@@ -9,6 +9,18 @@ import { Login2Page } from '../pages/login2/login2';
 import { SettingsPage } from '../pages/settings/settings';
 import { RedditsPage } from '../pages/reddits/reddits';
 
+import { AngularFireModule } from 'angularfire2';
+import { AuthService } from '../providers/auth-service';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAi2xZtIbJPJKpmkVmKViWjJaKaYchcRHA",
+    authDomain: "donationbox-35229.firebaseapp.com",
+    databaseURL: "https://donationbox-35229.firebaseio.com",
+    storageBucket: "donationbox-35229.appspot.com",
+    messagingSenderId: "939840354543"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +33,8 @@ import { RedditsPage } from '../pages/reddits/reddits';
     RedditsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,6 +47,6 @@ import { RedditsPage } from '../pages/reddits/reddits';
     SettingsPage,
     RedditsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AuthService]
 })
 export class AppModule {}

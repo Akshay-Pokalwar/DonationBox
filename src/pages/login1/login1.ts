@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+// import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 
 /*
@@ -10,12 +13,22 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-login1',
-  templateUrl: 'login1.html'
+  templateUrl: 'login1.html',
 })
 export class Login1Page {
+items: FirebaseListObservable<any[]>;
+constructor(public navCtrl: NavController,af: AngularFire,private _auth: AuthService) {
+    this.items = af.database.list('/items');
+  }
+  // constructor(public navCtrl: NavController, public navParams: NavParams) {}
+signInWithFacebook(): void {
+    this._auth.signInWithFacebook()
+      .then(() => this.onSignInSuccess());
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
+  private onSignInSuccess(): void {
+    console.log("Facebook display name ",this._auth.displayName());
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login1Page');
   }

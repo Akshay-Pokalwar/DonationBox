@@ -15,5 +15,26 @@
 
 
 <ion-content padding>
-
+<ion-list>
+  <ion-item class="text" *ngFor="let item of items | async">
+    {{item | json}}
+  </ion-item>
+  </ion-list>
+  <button ion-button outline (click)="signInWithFacebook()">Facebook</button>
 </ion-content>
+
+<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAi2xZtIbJPJKpmkVmKViWjJaKaYchcRHA",
+    authDomain: "donationbox-35229.firebaseapp.com",
+    databaseURL: "https://donationbox-35229.firebaseio.com",
+
+
+    storageBucket: "donationbox-35229.appspot.com",
+    messagingSenderId: "939840354543"
+  };
+  firebase.initializeApp(config);
+</script> -->
