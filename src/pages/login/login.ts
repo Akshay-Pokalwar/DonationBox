@@ -13,10 +13,10 @@ import { Login2Page } from '../login2/login2';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-login1',
-  templateUrl: 'login1.html',
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
-export class Login1Page {
+export class LoginPage {
   public email:string;
   public password:string;
 items: FirebaseListObservable<any[]>;

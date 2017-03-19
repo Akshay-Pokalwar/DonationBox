@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { AngularFire,AuthProviders, FirebaseListObservable } from 'angularfire2';
 import { AlertController } from 'ionic-angular';
-import { Login1Page } from '../login1/login1';
+import { LoginPage } from '../login/login';
 /*
   Generated class for the Login2 page.
 
@@ -29,7 +29,7 @@ signUpWithEmail(): void {
     (res) => {
       console.log(res)
       this.showAlert('Success!','Account created');
-      this.navCtrl.setRoot(Login1Page)
+      this.navCtrl.setRoot(LoginPage)
     },
     (err:any) => {
       console.log(err)
