@@ -4,6 +4,7 @@ import { NavController} from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { AngularFire,AuthProviders,AuthMethods, FirebaseListObservable } from 'angularfire2';
 import { Page2 } from '../page2/page2';
+import { Login2Page } from '../login2/login2';
 
 /*
   Generated class for the Login1 page.
@@ -45,11 +46,11 @@ signInWithEmail(): void {
     
   }
 
-  private onSignInSuccess(res): void {
-    console.log(res);
-    console.log("Facebook display name ",this._auth.displayName());
-    this.navCtrl.setRoot(Page2);
-  }
+public signup()
+{
+  this.navCtrl.setRoot(Login2Page);
+}
+ 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login1Page');
   }

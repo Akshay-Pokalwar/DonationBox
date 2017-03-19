@@ -8,6 +8,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-fab center bottom>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary"><ion-icon name="logo-vimeo"></ion-icon></button>
+       <button ion-fab color="secondary"><ion-icon name="logo-facebook"></ion-icon></button>
+       <button ion-fab color="light"><ion-icon name="logo-googleplus"></ion-icon></button>
+       <button ion-fab color="dark"><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
