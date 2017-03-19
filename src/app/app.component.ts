@@ -11,18 +11,21 @@ import { SettingsPage } from '../pages/settings/settings';
 import { RedditsPage } from '../pages/reddits/reddits';
 import {RedditService} from './services/reddit.services';
 
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+
+
 @Component({
   templateUrl: 'app.html',
   providers:[RedditService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = RedditsPage;
+  rootPage: any = Login1Page;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,af: AngularFire) {
+    
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -30,8 +33,8 @@ export class MyApp {
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
       { title: 'Page Three', component: Page3 },
-      { title: 'Login1 Page', component: Login1Page },
-      { title: 'Login2 page', component: Login2Page },
+      { title: 'Login', component: Login1Page },
+      { title: 'Sign Up', component: Login2Page },
       { title: 'Settings', component: SettingsPage },
       { title: 'RedditPage', component: RedditsPage }
     ];

@@ -1,19 +1,34 @@
 <!--
-  Generated template for the Login2 page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+**************************************************
+                  SIGN UP PAGE
+**************************************************
 -->
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login2</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+<ion-list>
 
+  <ion-item>
+    <ion-label>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<div padding>
+  <button (click)="signUpWithEmail()" ion-button block>SignUp</button>
+</div>
 </ion-content>

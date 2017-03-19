@@ -1,40 +1,35 @@
 <!--
-  Generated template for the Login1 page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+**************************************************
+                 Login PAGE
+**************************************************
 -->
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login1</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 <ion-list>
-  <ion-item class="text" *ngFor="let item of items | async">
-    {{item | json}}
+
+  <ion-item>
+    <ion-label>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="email"></ion-input>
   </ion-item>
-  </ion-list>
-  <button ion-button outline (click)="signInWithFacebook()">Facebook</button>
+
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<div padding>
+  <button (click)="signInWithEmail()" ion-button block>Login</button>
+  <button (click)="signUpWithEmail()" ion-button block>SignUp</button>
+</div>
 </ion-content>
-
-<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAi2xZtIbJPJKpmkVmKViWjJaKaYchcRHA",
-    authDomain: "donationbox-35229.firebaseapp.com",
-    databaseURL: "https://donationbox-35229.firebaseio.com",
-
-
-    storageBucket: "donationbox-35229.appspot.com",
-    messagingSenderId: "939840354543"
-  };
-  firebase.initializeApp(config);
-</script> -->

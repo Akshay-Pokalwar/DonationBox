@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { AngularFire,AuthProviders, FirebaseListObservable } from 'angularfire2';
+import { AlertController } from 'ionic-angular';
+import { Login1Page } from '../login1/login1';
 /*
   Generated class for the Login2 page.
 
@@ -12,9 +15,37 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login2.html'
 })
 export class Login2Page {
+ public email:string='';
+  public password:string='';
+  constructor(public navCtrl: NavController,public af: AngularFire, public navParams: NavParams,public alertCtrl: AlertController) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+signUpWithEmail(): void {
 
+  console.log("EMail="+this.email+":Password="+this.password)
+  this.af.auth.createUser({
+    email:this.email ,
+    password: this.password
+  }).then(
+    (res) => {
+      console.log(res)
+      this.showAlert('Success!','Account created');
+      this.navCtrl.setRoot(Login1Page)
+    },
+    (err:any) => {
+      console.log(err)
+      this.showAlert(err.code,err.message);
+      }
+  )
+  .catch();
+  }
+  showAlert(x,y) {
+    let alert = this.alertCtrl.create({
+      title: x,
+      subTitle: y,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login2Page');
   }
