@@ -11,22 +11,30 @@ import { SettingsPage } from '../pages/settings/settings';
 import { RedditsPage } from '../pages/reddits/reddits';
 import {RedditService} from './services/reddit.services';
 
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 
-
+// ,FirebaseListObservable, FirebaseObjectObservable
 @Component({
   templateUrl: 'app.html',
-  providers:[RedditService]
+  providers:[RedditService],
+//   template: `
+//   <ul>
+//     <li *ngFor="let item of items | async">
+//        {{ item | json }}
+//     </li>
+//   </ul>
+//   `,
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = Page1;
 
   pages: Array<{title: string, component: any}>;
-
+// items: FirebaseListObservable<any>;
   constructor(public platform: Platform,af: AngularFire) {
     
     this.initializeApp();
+    // this.items = af.database.list('/items');
 
     // used for an example of ngFor and navigation
     this.pages = [
