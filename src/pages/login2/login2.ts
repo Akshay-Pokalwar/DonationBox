@@ -46,6 +46,10 @@ signUpWithEmail(): void {
     });
     alert.present();
   }
+  public login()
+{
+  this.navCtrl.setRoot(LoginPage);
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login2Page');
   }

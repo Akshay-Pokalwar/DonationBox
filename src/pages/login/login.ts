@@ -5,6 +5,8 @@ import { AuthService } from '../../providers/auth-service';
 import { AngularFire,AuthProviders,AuthMethods, FirebaseListObservable } from 'angularfire2';
 import { Page2 } from '../page2/page2';
 import { Login2Page } from '../login2/login2';
+import { AlertController } from 'ionic-angular';
+import { Page1 } from '../page1/page1';
 
 /*
   Generated class for the Login1 page.
@@ -17,10 +19,10 @@ import { Login2Page } from '../login2/login2';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public email:string;
-  public password:string;
+  public email:string='';
+  public password:string='';
 items: FirebaseListObservable<any[]>;
-constructor(public navCtrl: NavController,public af: AngularFire,private _auth: AuthService) {
+constructor(public navCtrl: NavController,public af: AngularFire,private _auth: AuthService,public alertCtrl: AlertController) {
     this.items = af.database.list('/items');
   }
   // constructor(public navCtrl: NavController, public navParams: NavParams) {}
@@ -38,19 +40,33 @@ signInWithEmail(): void {
       }).then(
         (success) => {
         console.log(success);
+         this.showAlert('Success!','Logged In');
         this.navCtrl.setRoot(Page2);
       }).catch(
-        (err) => {
+        (err:any) => {
         console.log(err);
-      })
+        this.showAlert(err.code,err.message);
+      }).catch();
+  
     
+  }
+   showAlert(x,y) {
+    let alert = this.alertCtrl.create({
+      title: x,
+      subTitle: y,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 public signup()
 {
   this.navCtrl.setRoot(Login2Page);
 }
- 
+ public page1()
+{
+  this.navCtrl.setRoot(Page1);
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login1Page');
   }
