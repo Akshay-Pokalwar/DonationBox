@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-page2',
@@ -28,7 +29,10 @@ export class Page2 {
       });
     }
   }
-
+public logout()
+  {
+    this.navCtrl.setRoot(LoginPage);
+  }
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(Page2, {
