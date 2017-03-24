@@ -8,7 +8,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'page1.html'
 })
 export class Page1 {
-  public items:any='';
+  public items:any=[];
   
   // item: FirebaseObjectObservable<any[]>;
   lists:FirebaseListObservable<any[]>;
@@ -17,7 +17,10 @@ export class Page1 {
     this.lists = af.database.list('/lists',{preserveSnapshot:true});
     
     this.lists.subscribe((result:any)=>{
-      this.items = result;
+      for(var i=0; i<result.length; i++)
+      {
+        this.items[i]=result[i].val();
+      }
       console.log(this.items)
     });
 
