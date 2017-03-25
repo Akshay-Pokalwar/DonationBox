@@ -29,21 +29,21 @@ export class Page1 {
   {
     this.navCtrl.setRoot(LoginPage);
   }
-  public add()
-  {
-    this.lists.push({
-      'name':'Crocin',
-      'mfg_date':'11/2015',
-      'exp_date':'12/2020',
-      'addr':'Nanded',
-      contact:{
-        'phone':'8888004844',
-        'email':'akshaypklwr@gmail.com'
-      }
-    }).then(
-      (res)=>{console.log(res)},
-      (err)=>{console.error(err)}
-    );
-  }
+  // public add()
+  // {
+  //   this.lists.push({
+  //     'name':'Crocin',
+  //     'mfg_date':'11/2015',
+  //     'exp_date':'12/2020',
+  //     'addr':'Nanded',
+  //     contact:{
+  //       'phone':'8888004844',
+  //       'email':'akshaypklwr@gmail.com'
+  //     }
+  //   }).then(
+  //     (res)=>{console.log(res)},
+  //     (err)=>{console.error(err)}
+  //   );
+  // }
 
 }
