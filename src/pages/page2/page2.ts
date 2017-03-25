@@ -53,6 +53,7 @@ showAlert(x,y) {
  
 public logout()
   {
+    this.af.auth.logout();
     this.navCtrl.setRoot(LoginPage);
   }
   
