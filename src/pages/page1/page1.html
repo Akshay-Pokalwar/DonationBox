@@ -20,11 +20,13 @@
   <img src="http://www.cdn.sciencebuddies.org/Files/7234/6/medicines-and-syringe.jpg"/>
   <ion-card-content>
     <p></p>
-    <p><b>Name of Medicine</b> {{item.name}}</p>
-    <p>Mfg. Date :{{item.mfg_date}}</p>
-    <p>Exp. Date : {{item.exp_date}}</p>
-    <p>Address : {{item.addr}}</p>
+    <p><b>Name of Medicine : </b> {{item.name}}</p>
+    <p><b>Mfg. Date :</b>{{item.mfg_date}}</p>
+    <p><b>Exp. Date :</b> {{item.exp_date}}</p>
+    <p><b>Address : </b>{{item.addr}}</p>
+      <p><b>Email : </b>{{item.contact.email}}</p>
+      <p><b>Phone no : </b>{{item.contact.phone}}</p>
   </ion-card-content>
 </ion-card>
-  <button ion-button (click)="add()">Add</button>
+  <!--<button ion-button (click)="add()">Add</button>-->
 </ion-content>
