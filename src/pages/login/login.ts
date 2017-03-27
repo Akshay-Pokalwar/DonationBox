@@ -4,7 +4,7 @@ import { NavController} from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { AngularFire,AuthProviders,AuthMethods, FirebaseListObservable } from 'angularfire2';
 import { Page2 } from '../page2/page2';
-import { Login2Page } from '../login2/login2';
+import { SignUpPage } from '../signup/signup';
 import { AlertController } from 'ionic-angular';
 import { Page1 } from '../page1/page1';
 
@@ -61,7 +61,7 @@ signInWithEmail(): void {
 
 public signup()
 {
-  this.navCtrl.setRoot(Login2Page);
+  this.navCtrl.setRoot(SignUpPage);
 }
  public page1()
 {

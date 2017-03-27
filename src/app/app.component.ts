@@ -6,7 +6,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Page3 } from '../pages/page3/page3';
 import { LoginPage } from '../pages/login/login';
-import { Login2Page } from '../pages/login2/login2';
+import { SignUpPage } from '../pages/signup/signup';
 import { SettingsPage } from '../pages/settings/settings';
 import { RedditsPage } from '../pages/reddits/reddits';
 import {RedditService} from './services/reddit.services';
@@ -42,7 +42,7 @@ export class MyApp {
       { title: 'Add new Item', component: Page2 },
       { title: 'Page Three', component: Page3 },
       { title: 'Login', component: LoginPage },
-      { title: 'Sign Up', component: Login2Page },
+      { title: 'Sign Up', component: SignUpPage },
       { title: 'Settings', component: SettingsPage },
       { title: 'RedditPage', component: RedditsPage }
     ];

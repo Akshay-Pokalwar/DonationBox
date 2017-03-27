@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { LoginPage } from '../login/login';
-import { Login2Page } from '../login2/login2';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -18,7 +17,6 @@ export class Page3 {
   }
      showReceive()
   {
-    this.navCtrl.push(Login2Page);
   }
   
   }

@@ -5,7 +5,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Page3 } from '../pages/page3/page3';
 import { LoginPage } from '../pages/login/login';
-import { Login2Page } from '../pages/login2/login2';
+import { SignUpPage } from '../pages/signup/signup';
 import { SettingsPage } from '../pages/settings/settings';
 import { RedditsPage } from '../pages/reddits/reddits';
 
@@ -28,7 +28,7 @@ export const firebaseConfig = {
     Page2,
     Page3,
     LoginPage,
-    Login2Page,
+    SignUpPage,
     SettingsPage,
     RedditsPage
   ],
@@ -43,7 +43,7 @@ export const firebaseConfig = {
     Page2,
     Page3,
     LoginPage,
-    Login2Page,
+    SignUpPage,
     SettingsPage,
     RedditsPage
   ],

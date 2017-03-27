@@ -11,10 +11,10 @@ import { LoginPage } from '../login/login';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-login2',
-  templateUrl: 'login2.html'
+  selector: 'page-signup',
+  templateUrl: 'signup.html'
 })
-export class Login2Page {
+export class SignUpPage {
  public email:string='';
   public password:string='';
   constructor(public navCtrl: NavController,public af: AngularFire, public navParams: NavParams,public alertCtrl: AlertController) {}
