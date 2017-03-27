@@ -15,14 +15,16 @@ export class Page2 {
   public address:string='';
   public phone:string='';
   public email:string='';
+  public uid:string='';
   
   
   selectedItem: any;
   
 lists:FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public af:AngularFire,public alertCtrl: AlertController) {
-  this.lists = af.database.list('/lists',{preserveSnapshot:true});
-}
+        this.af.auth.subscribe(auth => auth ? this.uid=auth.uid:console.log());
+        this.lists = af.database.list('/lists',{preserveSnapshot:true});
+  }
   add()
     {
         this.lists.push({
@@ -33,7 +35,8 @@ lists:FirebaseListObservable<any[]>;
       contact:{
         'phone':this.phone,
         'email':this.email
-      }
+      },
+      createdBy:this.uid
     }).then(
       (res)=>{console.log(res)
       this.showAlert('Success!','Record inserted');},
