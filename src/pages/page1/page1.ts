@@ -39,7 +39,11 @@ export class Page1 {
   {
     this.navCtrl.setRoot(LoginPage);
   }
-
+  public logout()
+  {
+    this.af.auth.logout();
+    this.navCtrl.setRoot(LoginPage);
+  }
   public canRemove(item:any)
   {
     if(this.uid == item.createdBy)

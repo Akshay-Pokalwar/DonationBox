@@ -5,9 +5,14 @@
     </button>
     <ion-title>Page Two</ion-title>
     <ion-buttons end>
-      <button (click)="logout()" color="light" ion-button icon-left >
+      <button (click)="logout()" color="light" *ngIf="loggedin" ion-button icon-left >
         <ion-icon name="contact"></ion-icon>
         Logout
+      </button>
+
+      <button (click)="login()" color="light" *ngIf="!loggedin" ion-button icon-left >
+        <ion-icon name="contact"></ion-icon>
+        Login 
       </button>
     </ion-buttons>
   </ion-navbar>

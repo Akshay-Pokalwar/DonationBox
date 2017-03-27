@@ -21,8 +21,17 @@ export class Page2 {
   selectedItem: any;
   
 lists:FirebaseListObservable<any[]>;
+loggedin;
   constructor(public navCtrl: NavController, public navParams: NavParams, public af:AngularFire,public alertCtrl: AlertController) {
-        this.af.auth.subscribe(auth => auth ? this.uid=auth.uid:console.log());
+        this.af.auth.subscribe(auth => 
+        {
+          if(auth){
+            this.uid=auth.uid;
+            this.loggedin = true;
+          }else{
+            this.loggedin = false;
+          }
+        });
         this.lists = af.database.list('/lists',{preserveSnapshot:true});
   }
   add()
