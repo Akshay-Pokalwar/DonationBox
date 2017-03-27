@@ -68,5 +68,9 @@ public logout()
     this.af.auth.logout();
     this.navCtrl.setRoot(LoginPage);
   }
+  public login()
+  {
+    this.navCtrl.push(LoginPage);
+  }
   
 }

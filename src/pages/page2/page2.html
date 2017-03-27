@@ -20,7 +20,7 @@
 
 
 <ion-content padding>
-<ion-list>
+<ion-list *ngIf="loggedin">
 
   <ion-item>
     <ion-label>Name of medicine</ion-label>
@@ -43,7 +43,7 @@
     <ion-input type="text" [(ngModel)]="address"></ion-input>
   </ion-item>
 
-<ion-item>
+  <ion-item>
     <ion-label>Phone No.</ion-label>
     <ion-input type="text" [(ngModel)]="phone"></ion-input>
   </ion-item>
@@ -52,10 +52,21 @@
     <ion-label>E-mail</ion-label>
     <ion-input type="text" [(ngModel)]="email"></ion-input>
   </ion-item>
-</ion-list>
 
-<div padding>
   <button (click)="add()" ion-button block>Add</button>
-</div>
+</ion-list>
+<ion-card *ngIf="!loggedin">
+  <ion-card-header color="danger">
+    Please Login
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item (click)="login()">
+      <ion-icon name="key" item-left></ion-icon>
+      Login
+    </button>
+  </ion-list>
+</ion-card>
+
 </ion-content>
 

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page One</ion-title>
+    <ion-title>Item Listing</ion-title>
      <ion-buttons end>
     <button (click)="login()" color="light" *ngIf="!loggedin" ion-button icon-left >
       <ion-icon name="contact"></ion-icon>
@@ -18,7 +18,6 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
 <ion-card *ngFor="let item of items">
   <img src="http://www.cdn.sciencebuddies.org/Files/7234/6/medicines-and-syringe.jpg"/>
