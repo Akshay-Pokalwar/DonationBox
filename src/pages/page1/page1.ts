@@ -9,17 +9,27 @@ import { LoginPage } from '../login/login';
 })
 export class Page1 {
   public items:any=[];
-  
+  public uid:string;
+  loggedin;
   // item: FirebaseObjectObservable<any[]>;
   lists:FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public af:AngularFire) {
-  
+    this.af.auth.subscribe(auth => {
+      if(auth){
+        this.uid=auth.uid;
+        this.loggedin = true;
+      }else{
+        this.loggedin = false;
+      }
+    });
     this.lists = af.database.list('/lists',{preserveSnapshot:true});
     
     this.lists.subscribe((result:any)=>{
+      this.items =[];
       for(var i=0; i<result.length; i++)
       {
         this.items[i]=result[i].val();
+        this.items[i].key=result[i].key;
       }
       console.log(this.items)
     });
@@ -28,6 +38,21 @@ export class Page1 {
   public login()
   {
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  public canRemove(item:any)
+  {
+    if(this.uid == item.createdBy)
+      return true;
+    else
+    return false;
+  }
+  public removeItem(item)
+  {
+    if(this.uid == item.createdBy)
+    {
+      this.lists.remove(item.key);
+    }
   }
   // public add()
   // {

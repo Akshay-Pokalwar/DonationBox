@@ -24,9 +24,10 @@
     <p><b>Mfg. Date :</b>{{item.mfg_date}}</p>
     <p><b>Exp. Date :</b> {{item.exp_date}}</p>
     <p><b>Address : </b>{{item.addr}}</p>
-      <p><b>Email : </b>{{item.contact.email}}</p>
-      <p><b>Phone no : </b>{{item.contact.phone}}</p>
+    <p><b>Email : </b>{{item.contact.email}}</p>
+    <p><b>Phone no : </b>{{item.contact.phone}}</p>
   </ion-card-content>
+  <button ion-button *ngIf="canRemove(item)" (click)="removeItem(item)" block>Remove</button>
 </ion-card>
   <!--<button ion-button (click)="add()">Add</button>-->
 </ion-content>
