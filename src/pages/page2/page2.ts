@@ -3,10 +3,12 @@ import { AngularFire,FirebaseListObservable} from 'angularfire2';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import {Camera} from "ionic-native";
 
 @Component({
   selector: 'page-page2',
-  templateUrl: 'page2.html'
+  templateUrl: 'page2.html',
+  providers:[Camera]
 })
 export class Page2 {
   public name:string='';
@@ -16,13 +18,15 @@ export class Page2 {
   public phone:string='';
   public email:string='';
   public uid:string='';
-  
+  //adding Camera
+  public base64Image: string;
+
   
   selectedItem: any;
   
 lists:FirebaseListObservable<any[]>;
 loggedin;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public af:AngularFire,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public af:AngularFire,public camera: Camera,public alertCtrl: AlertController) {
         this.af.auth.subscribe(auth => 
         {
           if(auth){
@@ -33,6 +37,9 @@ loggedin;
           }
         });
         this.lists = af.database.list('/lists',{preserveSnapshot:true});
+        //adding Camera
+        this.base64Image = "https://placehold.sssit/150x150";
+  this.base64Image = "https://placehold.it/150x150";
   }
   add()
     {
@@ -72,5 +79,21 @@ public logout()
   {
     this.navCtrl.push(LoginPage);
   }
-  
+  //adding camera
+  public takePicture() {
+        Camera.getPicture({
+            quality : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            sourceType : Camera.PictureSourceType.CAMERA,
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            saveToPhotoAlbum: false
+        }).then(imageData => {
+            this.base64Image = "data:image/jpeg;base64," + imageData;
+        }, error => {
+            console.log("ERROR -> " + JSON.stringify(error));
+        });
+  }  
 }

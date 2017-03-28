@@ -53,7 +53,19 @@
     <ion-input type="text" [(ngModel)]="email"></ion-input>
   </ion-item>
 
-  <button (click)="add()" ion-button block>Add</button>
+<ion-navbar>
+        <ion-buttons end>
+            <button (click)="takePicture()">
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+ 
+<ion-content padding>
+    <img src="{{ base64Image }}" />
+</ion-content>
+
+  <br><br><br><br><br><br><br><br><br><br><button (click)="add()" ion-button block>Add</button>
 </ion-list>
 <ion-card *ngIf="!loggedin">
   <ion-card-header color="danger">
