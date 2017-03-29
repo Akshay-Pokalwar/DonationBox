@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {Camera} from "ionic-native";
-
+import { AuthService } from '../../providers/auth-service';
 @Component({
   selector: 'page-page2',
   templateUrl: 'page2.html',

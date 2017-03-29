@@ -15,20 +15,34 @@ import { LoginPage } from '../login/login';
   templateUrl: 'signup.html'
 })
 export class SignUpPage {
+ public firstname:string=''; 
+ public lastname:string='';
  public email:string='';
   public password:string='';
+  userdata:FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController,public af: AngularFire, public navParams: NavParams,public alertCtrl: AlertController) {}
 
 signUpWithEmail(): void {
-
+  this.userdata = this.af.database.list('/userdata',{preserveSnapshot:true});
   console.log("EMail="+this.email+":Password="+this.password)
   this.af.auth.createUser({
     email:this.email ,
     password: this.password
   }).then(
     (res) => {
-      console.log(res)
-      this.showAlert('Success!','Account created');
+      console.log(res);
+      
+      this.userdata.push({
+        'firstname':this.firstname,
+        'lastname':this.lastname,
+        'email':this.email
+      }).then(
+      (res)=>{
+        this.showAlert('Success!','Account created');
+      },(err:any)=>{
+        this.showAlert(err.code,err.message);
+      });
+      // this.userdata = this.af.database.list('/userdata',{preserveSnapshot:true});
       this.navCtrl.setRoot(LoginPage)
     },
     (err:any) => {
