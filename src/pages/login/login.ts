@@ -63,6 +63,40 @@ public signup()
 {
   this.navCtrl.setRoot(SignUpPage);
 }
+
+public forgetpassword()
+{
+  let prompt= this.alertCtrl.create({
+    title:'enter your email',
+    message:'new pwd will be sent to you',
+    inputs:[
+      {
+        name:'email',
+        placeholder:'email'
+      },
+    ],
+    buttons:
+    [
+      {
+        text:'cancel',
+        handler:data=>{
+          console.log("cancle clicked");
+
+        }
+      },
+      {
+        text:'submit',
+        handler:data=>{
+          console.log("data is"+data.email);
+          // 
+         
+        
+        }
+      },
+    ]
+  });
+  prompt.present();
+}
  public page1()
 {
   this.navCtrl.setRoot(Page1);

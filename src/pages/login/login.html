@@ -32,10 +32,14 @@
     <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
 
+
 </ion-list>
 
 <div padding>
   <button (click)="signInWithEmail()" ion-button block>Login</button>
   <button (click)="signup()" ion-button block>SignUp</button>
 </div>
+  <div class="fpbutton" (click)="forgetpassword()">
+    <button clear full >Forget Password</button>
+  </div>
 </ion-content>
