@@ -5,12 +5,12 @@
     </button>
     <ion-title>Page Two</ion-title>
     <ion-buttons end>
-      <button (click)="logout()" color="light" *ngIf="loggedin" ion-button icon-left >
+      <button (click)="logout()" color="light" *ngIf="loggedin" ion-button icon-left>
         <ion-icon name="contact"></ion-icon>
         Logout
       </button>
 
-      <button (click)="login()" color="light" *ngIf="!loggedin" ion-button icon-left >
+      <button (click)="login()" color="light" *ngIf="!loggedin" ion-button icon-left>
         <ion-icon name="contact"></ion-icon>
         Login 
       </button>
@@ -20,65 +20,61 @@
 
 
 <ion-content padding>
-<ion-list *ngIf="loggedin">
+  <ion-list *ngIf="loggedin">
 
-  <ion-item>
-    <ion-label>Name of medicine</ion-label>
-    <ion-input type="text" [(ngModel)]="name"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Name of medicine</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Mfg.Date</ion-label>
-    <ion-input type="text" [(ngModel)]="mfg_date"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Mfg.Date</ion-label>
+      <ion-input type="text" [(ngModel)]="mfg_date"></ion-input>
+    </ion-item>
 
 
-  <ion-item>
-    <ion-label>Exp. Date</ion-label>
-    <ion-input type="text" [(ngModel)]="exp_date"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Exp. Date</ion-label>
+      <ion-input type="text" [(ngModel)]="exp_date"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Address</ion-label>
-    <ion-input type="text" [(ngModel)]="address"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="address"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Phone No.</ion-label>
-    <ion-input type="text" [(ngModel)]="phone"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Phone No.</ion-label>
+      <ion-input type="text" [(ngModel)]="phone"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>E-mail</ion-label>
-    <ion-input type="text" [(ngModel)]="email"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-<ion-navbar>
-        <ion-buttons end>
-            <button (click)="takePicture()">
-                <ion-icon name="camera"></ion-icon>
-            </button>
-        </ion-buttons>
-    </ion-navbar>
- 
-<ion-content padding>
-    <img src="{{ base64Image }}" />
-</ion-content>
+    <ion-navbar>
+    
+      <button ion-button (click)="takePicture()" full>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+      </ion-navbar>
+  
+      <img src="{{ base64Image }}" height="300" width="300" />
 
-  <br><br><br><br><br><br><br><br><br><br><button (click)="add()" ion-button block>Add</button>
-</ion-list>
-<ion-card *ngIf="!loggedin">
-  <ion-card-header color="danger">
-    Please Login
-  </ion-card-header>
+    <br><br><button (click)="add()" ion-button block>Add</button>
+  </ion-list>
+  <ion-card *ngIf="!loggedin">
+    <ion-card-header color="danger">
+      Please Login
+    </ion-card-header>
 
-  <ion-list>
-    <button ion-item (click)="login()">
+    <ion-list>
+      <button ion-item (click)="login()">
       <ion-icon name="key" item-left></ion-icon>
       Login
     </button>
-  </ion-list>
-</ion-card>
+    </ion-list>
+  </ion-card>
 
 </ion-content>
-

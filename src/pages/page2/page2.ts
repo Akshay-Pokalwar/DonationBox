@@ -90,8 +90,14 @@ public logout()
             targetWidth: 300,
             targetHeight: 300,
             saveToPhotoAlbum: false
-        }).then(imageData => {
-            this.base64Image = "data:image/jpeg;base64," + imageData;
+        }).then((imageData: string) => {
+            if(imageData.indexOf("file")!=0)
+              this.base64Image = "data:image/jpeg;base64," + imageData;
+
+            this.af.database.list('/assets').push({
+              'createdBy':this.uid,
+              'picked_image': this.base64Image
+            })
         }, error => {
             console.log("ERROR -> " + JSON.stringify(error));
         });
