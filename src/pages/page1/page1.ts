@@ -10,8 +10,10 @@ import { LoginPage } from '../login/login';
 export class Page1 {
   public items:any=[];
   public uid:string;
+  public images:any=[];
   loggedin;
   // item: FirebaseObjectObservable<any[]>;
+  assets: FirebaseListObservable<any[]>;
   lists:FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public af:AngularFire) {
     this.af.auth.subscribe(auth => {
@@ -22,8 +24,8 @@ export class Page1 {
         this.loggedin = false;
       }
     });
-    this.lists = af.database.list('/lists',{preserveSnapshot:true});
-    
+    this.lists = af.database.list('/lists', {preserveSnapshot:true});
+    this.assets = af.database.list('/assets',{preserveSnapshot:true});
     this.lists.subscribe((result:any)=>{
       this.items =[];
       for(var i=0; i<result.length; i++)
@@ -33,7 +35,15 @@ export class Page1 {
       }
       console.log(this.items)
     });
-
+// this.assets.subscribe((result:any)=>{
+//       this.images =[];
+//       for(var i=0; i<result.length; i++)
+//       {
+//         this.images[i]=result[i].val();
+//         // this.items[i].key=result[i].key;
+//       }
+//       console.log(this.images)
+//     });
   }
   public login()
   {

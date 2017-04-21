@@ -7,6 +7,8 @@ import { Page2 } from '../page2/page2';
 import { SignUpPage } from '../signup/signup';
 import { AlertController } from 'ionic-angular';
 import { Page1 } from '../page1/page1';
+import { Page3 } from '../page3/page3';
+import * as firebase from 'firebase';
 
 /*
   Generated class for the Login1 page.
@@ -66,36 +68,45 @@ public signup()
 
 public forgetpassword()
 {
-  let prompt= this.alertCtrl.create({
-    title:'enter your email',
-    message:'new pwd will be sent to you',
-    inputs:[
-      {
-        name:'email',
-        placeholder:'email'
-      },
-    ],
-    buttons:
-    [
-      {
-        text:'cancel',
-        handler:data=>{
-          console.log("cancle clicked");
+  this.navCtrl.setRoot(Page3);
+  // var a = firebase.auth();
+  // a.sendPasswordResetEmail(this.email).then(
+  //   (success)=>{this.showAlert('Success!','Logged In');
+  // }).catch(
+  //   (err:any)=>{
+  //       this.showAlert(err.code,err.message);
+  //   });
+  //this._auth.sendPasswordResetEmail(this.email);
+  // let prompt= this.alertCtrl.create({
+  //   title:'enter your email',
+  //   message:'new pwd will be sent to you',
+  //   inputs:[
+  //     {
+  //       name:'email',
+  //       placeholder:'email'
+  //     },
+  //   ],
+  //   buttons:
+  //   [
+  //     {
+  //       text:'cancel',
+  //       handler:data=>{
+  //         console.log("cancle clicked");
 
-        }
-      },
-      {
-        text:'submit',
-        handler:data=>{
-          console.log("data is"+data.email);
-          // 
+  //       }
+  //     },
+  //     {
+  //       text:'submit',
+  //       handler:data=>{
+  //         console.log("data is"+data.email);
+  //         // 
          
         
-        }
-      },
-    ]
-  });
-  prompt.present();
+  //       }
+  //     },
+  //   ]
+  // });
+  // prompt.present();
 }
  public page1()
 {

@@ -20,9 +20,9 @@
 <ion-content padding>
 
 <ion-card *ngFor="let item of items">
-  <img src="http://www.cdn.sciencebuddies.org/Files/7234/6/medicines-and-syringe.jpg"/>
   <ion-card-content>
-    <p></p>
+    
+    <p><img src={{item.picked_image}}/></p>
     <p><b>Name of Medicine : </b> {{item.name}}</p>
     <p><b>Mfg. Date :</b>{{item.mfg_date}}</p>
     <p><b>Exp. Date :</b> {{item.exp_date}}</p>

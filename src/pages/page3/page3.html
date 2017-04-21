@@ -9,31 +9,25 @@
 
 <ion-content >
    
-    <ion-header>
-
-  <ion-navbar>
-    <ion-title color="light">Donation Box</ion-title>
-  </ion-navbar>
-  <ion-content class="card-background-page">
+  <!--<ion-content class="card-background-page">
 
   <ion-card>
     <img src="img/card-saopaolo.png"/>
     <div class="card-title">São Paulo</div>
     <div class="card-subtitle">41 Listings</div>
   </ion-card>
-</ion-content>
+</ion-content>-->
+<!--<ion-content >-->
   <ion-card>
-      
-  <img src="http://www.cdn.sciencebuddies.org/Files/7234/6/medicines-and-syringe.jpg"/>
+      <div>
+      <ion-item>
+    <ion-label>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="email"></ion-input>
+  </ion-item>
+      </div>
+  <div class="fpbutton" (click)="submit()">
+    <button ion-button clear full >Submit</button>
+  </div>
 </ion-card>
-</ion-header><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br>
-     
-    
-    <button ion-button full color="dark" class="button button-light" (click)="showDonate()">
-        Donate
-    </button>
-    <button ion-button full color="dark" class="button button-light" (click)="showReceive()">
-        Receive
-    </button>
+<!--</ion-content>-->
 </ion-content>
