@@ -27,16 +27,22 @@
       <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <!--<ion-item>
       <ion-label floating>Mfg.Date</ion-label>
       <ion-input type="text" [(ngModel)]="mfg_date"></ion-input>
-    </ion-item>
-
-
+    </ion-item>-->
     <ion-item>
+  <ion-label>Mfg. Date</ion-label>
+  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="mfg_date"></ion-datetime>
+</ion-item>
+    <!--<ion-item>
       <ion-label floating>Exp. Date</ion-label>
       <ion-input type="text" [(ngModel)]="exp_date"></ion-input>
-    </ion-item>
+    </ion-item>-->
+<ion-item>
+  <ion-label>Exp. Date</ion-label>
+  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="exp_date"></ion-datetime>
+</ion-item>
 
     <ion-item>
       <ion-label floating>Address</ion-label>

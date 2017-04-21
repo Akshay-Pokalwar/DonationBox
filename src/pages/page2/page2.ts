@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {Camera} from "ionic-native";
 import { AuthService } from '../../providers/auth-service';
+import * as _ from 'loadash';
+
 @Component({
   selector: 'page-page2',
   templateUrl: 'page2.html',
@@ -20,7 +22,11 @@ export class Page2 {
   public uid:string='';
   //adding Camera
   public base64Image: string;
-
+public event = {
+    month: '1990-02-19',
+    timeStarts: '07:43',
+    timeEnds: '1990-02-20'
+  }
   
   selectedItem: any;
   
@@ -38,8 +44,8 @@ loggedin;
         });
         this.lists = af.database.list('/lists',{preserveSnapshot:true});
         //adding Camera
-        this.base64Image = "https://placehold.sssit/150x150";
-  this.base64Image = "https://placehold.it/150x150";
+        //this.base64Image = "https://placehold.sssit/150x150";
+  this.base64Image = "https://placehold.it/300x300";
   }
   add()
     {
@@ -48,6 +54,7 @@ loggedin;
       'mfg_date':this.mfg_date,
       'exp_date':this.exp_date,
       'addr':this.address,
+      'picked_image': this.base64Image,
       contact:{
         'phone':this.phone,
         'email':this.email
@@ -94,10 +101,10 @@ public logout()
             if(imageData.indexOf("file")!=0)
               this.base64Image = "data:image/jpeg;base64," + imageData;
 
-            this.af.database.list('/assets').push({
-              'createdBy':this.uid,
-              'picked_image': this.base64Image
-            })
+            // this.af.database.list('/assets').push({
+            //   'createdBy':this.uid,
+            //   'picked_image': this.base64Image
+            // })
         }, error => {
             console.log("ERROR -> " + JSON.stringify(error));
         });
