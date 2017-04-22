@@ -13,6 +13,7 @@ import * as _ from 'loadash';
   providers:[Camera]
 })
 export class Page2 {
+  public own:string='';
   public name:string='';
   public mfg_date:string='';
   public exp_date:string='';
@@ -50,6 +51,7 @@ loggedin;
   add()
     {
         this.lists.push({
+          'own':this.own,
       'name':this.name,
       'mfg_date':this.mfg_date,
       'exp_date':this.exp_date,

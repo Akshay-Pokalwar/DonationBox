@@ -22,6 +22,11 @@
 <ion-content padding>
   <ion-list *ngIf="loggedin">
 
+<ion-item>
+      <ion-label floating>Name of owner</ion-label>
+      <ion-input type="text" [(ngModel)]="own"></ion-input>
+    </ion-item>
+
     <ion-item>
       <ion-label floating>Name of medicine</ion-label>
       <ion-input type="text" [(ngModel)]="name"></ion-input>
