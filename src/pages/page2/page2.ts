@@ -14,6 +14,7 @@ import * as _ from 'loadash';
 })
 export class Page2 {
   public own:string='';
+  public details:string='';
   public name:string='';
   public mfg_date:string='';
   public exp_date:string='';
@@ -52,6 +53,7 @@ loggedin;
     {
         this.lists.push({
           'own':this.own,
+          'details':this.details,
       'name':this.name,
       'mfg_date':this.mfg_date,
       'exp_date':this.exp_date,
