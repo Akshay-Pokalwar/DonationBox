@@ -38,7 +38,7 @@
     </ion-item>-->
     <ion-item>
   <ion-label>Mfg. Date</ion-label>
-  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="mfg_date"></ion-datetime>
+  <ion-datetime displayFormat="MMM YYYY" max="2035" min="2010" [(ngModel)]="mfg_date"></ion-datetime>
 </ion-item>
     <!--<ion-item>
       <ion-label floating>Exp. Date</ion-label>
@@ -46,7 +46,7 @@
     </ion-item>-->
 <ion-item>
   <ion-label>Exp. Date</ion-label>
-  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="exp_date"></ion-datetime>
+  <ion-datetime displayFormat="MMM YYYY" max="2035" min="2010" [(ngModel)]="exp_date" ></ion-datetime>
 </ion-item>
 
     <ion-item>
