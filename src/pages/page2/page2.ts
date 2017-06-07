@@ -59,8 +59,17 @@ loggedin;
       {
         this.showAlert('fail!','expiry date should not be less than manufacturing date'); 
     }
-    else if(this.own=="[a-zA-Z]+")
-     {}
+    if(this.own!="[a-zA-Z0-9]+")
+     {this.showAlert('fail!','Invalid owner name'); }
+
+      if(this.name!="[a-zA-Z0-9]+")
+     {
+       this.showAlert('fail!','Invalid medicine name'); }
+      if(this.own!="[a-zA-Z0-9]+")
+     {this.showAlert('fail!','Invalid address'); }
+      if(this.own!="[0-9][0-9]+")
+     {this.showAlert('fail!','Invalid mobile no'); }
+
       else{
         this.lists.push({
           'own':this.own,
