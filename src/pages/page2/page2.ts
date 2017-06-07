@@ -51,6 +51,17 @@ loggedin;
   }
   add()
     {
+      if(this.own==''||this.details==''||this.name==''||this.address==''||this.phone==''||this.email==''||this.exp_date==''||this.mfg_date=='')
+    {
+      this.showAlert('fail!','All fields must be filled'); 
+    }
+     else if(this.mfg_date>=this.exp_date)
+      {
+        this.showAlert('fail!','expiry date should not be less than manufacturing date'); 
+    }
+    else if(this.own=="[a-zA-Z]+")
+     {}
+      else{
         this.lists.push({
           'own':this.own,
           'details':this.details,
@@ -71,7 +82,7 @@ loggedin;
     this.showAlert(err.code,err.message);  
     }
     );
-     }
+     }}
 showAlert(x,y) {
     let alert = this.alertCtrl.create({
       title: x,

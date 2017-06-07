@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LoginPage } from '../login/login';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { AngularFire,AuthProviders,AuthMethods, FirebaseListObservable } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 import { AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
 
@@ -19,6 +19,12 @@ export class Page3 {
   public submit()
 {
   //this.navCtrl.setRoot(Page3);
+  if(this.email=='')
+  {
+    this.showAlert('Fail!','Enter email');
+  }
+  else
+  {
   var a = firebase.auth();
   a.sendPasswordResetEmail(this.email).then(
     (success)=>{
@@ -29,7 +35,7 @@ export class Page3 {
         this.showAlert(err.code,err.message);
     });
 
-  
+  }
   }
   showAlert(x,y) {
     let alert = this.alertCtrl.create({
