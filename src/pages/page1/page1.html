@@ -21,13 +21,6 @@
   
 </ion-content>
 <ion-content padding>
-<ion-searchbar (ionInput)="getItems($event)" primary [(ngModel)]="searchQuery" 
-                  (keyup)="search()"></ion-searchbar>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item }}
-    </ion-item>
-  </ion-list>  
 <ion-card *ngFor="let item of items">
   <ion-card-content>
   
