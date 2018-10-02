@@ -40,11 +40,11 @@ export class MyApp {
     this.pages = [
       { title: 'Item Listing', component: Page1 },
       { title: 'Add new Item', component: Page2 },
-      // { title: 'Password Reset', component: Page3 },
+    
       { title: 'Login', component: LoginPage },
       { title: 'Sign Up', component: SignUpPage },
       { title: 'Details of Developers', component: SettingsPage },
-      // { title: 'RedditPage', component: RedditsPage }
+ 
     ];
 
   }
